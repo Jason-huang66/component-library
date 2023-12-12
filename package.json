@@ -15,7 +15,9 @@
     "lint": "npm run lint:es && npm run lint:css",
     "lint:css": "stylelint \"{src,test}/**/*.{css,less}\"",
     "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
-    "prepublishOnly": "father doctor && npm run build"
+    "prepublishOnly": "father doctor && npm run build",
+    "test:all": "jest --coverage --bail",
+    "test:staged": "node jest.staged.js"
   },
   "authors": [
     "shine"
@@ -30,20 +32,17 @@
     ]
   },
   "lint-staged": {
-    "*.{md,json}": [
+    "src/**/*.{md,json}": [
       "prettier --write --no-error-on-unmatched-pattern"
     ],
-    "*.{css,less}": [
+    "src/**/*.{css,less}": [
       "stylelint --fix",
       "prettier --write"
     ],
-    "*.{js,jsx}": [
+    "src/**/*.{ts, tsx}": [
       "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{ts,tsx}": [
-      "eslint --fix",
-      "prettier --parser=typescript --write"
+      "prettier --parser=typescript --write",
+      "npm run test:staged"
     ]
   },
   "publishConfig": {
@@ -61,6 +60,7 @@
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@umijs/lint": "^4.0.0",
+    "antd": "^5.12.2",
     "dumi": "^2.2.13",
     "eslint": "^8.23.0",
     "father": "^4.1.0",
