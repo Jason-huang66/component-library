@@ -12,7 +12,6 @@ async function start() {
   const diffFileList = addFiles
     .filter(Boolean)
     .map((item) => path.join(__dirname, item));
-
   /** 3. 获取src源码目录 */
   const srcPath = path.join(__dirname, './src');
 
@@ -24,13 +23,12 @@ async function start() {
       (filePath.endsWith('.ts') || filePath.endsWith('.tsx'))
     ) {
       const relativePath = path.relative(srcPath, filePath);
-      if (relativePath.includes('/')) {
-        diffFileMap[relativePath.split('/')[0]] = true;
+      const str = '\\';
+      if (relativePath.includes(str)) {
+        diffFileMap[relativePath.split(str)[0]] = true;
       }
     }
   });
-
-  console.log('本次改动的方法', Object.keys(diffFileMap));
 
   /** 5. 找到改动方法下面所有的单元测试文件 */
   const list = (

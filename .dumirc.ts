@@ -9,5 +9,6 @@ export default defineConfig({
     `.dumi-default-header-left {
        width: 220px !important;
     }`,
-  ]
+  ],
+  exportStatic: false
 });
