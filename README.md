@@ -3,15 +3,16 @@
 [![NPM version](https://img.shields.io/npm/v/test.svg?style=flat)](https://npmjs.org/package/test)
 [![NPM downloads](http://img.shields.io/npm/dm/test.svg?style=flat)](https://npmjs.org/package/test)
 
-test
+封装个人组件库
 
 ## Usage
 
-TODO
+基于dumi2+react+ts
 
 ## Options
 
-TODO
+[项目部署链接](https://component-library-7y1.pages.dev/components/format-time)
+
 
 ## Development
 
